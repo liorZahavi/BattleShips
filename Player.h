@@ -15,8 +15,10 @@ namespace BattleShips
         Player(const char *name);
         virtual ~Player();
         char *GetPlayerName() { return playerName; }
-        virtual void placeAllShips();
-        virtual void makeMove(Player *opponent);
+        Grid *getGrid() { return grid; }
+
+        virtual void placeAllShips() = 0;
+        virtual void makeMove(Player *opponent) = 0;
         bool allShipsSunk() const;
         void displayGrid();
     };
