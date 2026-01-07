@@ -33,7 +33,6 @@ namespace BattleShips
 
                 if (!placed)
                     std::cout << "Invalid placement, try again.\n";
-                placed = true;
             }
         }
     }
