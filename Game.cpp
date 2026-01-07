@@ -20,13 +20,13 @@ namespace BattleShips
             player1->makeMove(player2);
             if (player2->allShipsSunk())
             {
-                std::cout << "The winner is:" << player1->getName() << std::endl;
+                std::cout << "The winner is:" << player1->GetPlayerName() << std::endl;
                 return;
             }
             player2->makeMove(player1);
             if (player1->allShipsSunk())
             {
-                std::cout << "The winner is: " << player2->getName() << std::endl;
+                std::cout << "The winner is: " << player2->GetPlayerName() << std::endl;
                 return;
             }
         }

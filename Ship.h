@@ -4,7 +4,7 @@ namespace BattleShips
 {
     class Ship
     {
-    private:
+    protected:
         char *name;
         int size;
         int hitsTaken;
@@ -14,6 +14,7 @@ namespace BattleShips
         virtual ~Ship();
         int getHitsTaken() const { return hitsTaken; }
         int getSize() const { return size; }
+        char *getName() const { return name; }
         virtual void takeHit();
         bool isSunk() const;
 

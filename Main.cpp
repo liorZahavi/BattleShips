@@ -1,5 +1,7 @@
 #include "Game.h"
 #include "Player.h"
+#include "HumanPlayer.h"
+#include "AiPlayer.h"
 #include <cstdlib>
 #include <ctime>
 
