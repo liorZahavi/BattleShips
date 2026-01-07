@@ -40,47 +40,29 @@ namespace BattleShips
             std::cout << "Error: Out of bounds\n";
             return;
         }
-        if (horizontal) // אם הוא אופקי
+        int dr = horizontal ? 0 : 1;
+        int dc = horizontal ? 1 : 0;
+        for (int i = 0; i < shipSize; i++)
         {
-            for (int i = 0; i < shipSize; i++)
+            if (isTileOccupied(row + i * dr, col + i * dc))
             {
-                if (cells[row + i][col] != '~')
-                {
-                    std::cout << "Error: Cell is occupied\n";
-                    return;
-                }
-                else
-                {
-                    cells[row + i][col] = symbol;
-                }
+                std::cout << "Error: Cell is occupied\n";
+                return;
             }
         }
-        else
+        for (int j = 0; j < shipSize; j++)
         {
-            for (int i = 0; i < shipSize; i++)
-            {
-                if (cells[row][col + i] != '~')
-                {
-                    std::cout << "Error: Cell is occupied\n";
-                    return;
-                }
-                else
-                {
-                    cells[row][col + i] = symbol;
-                }
-            }
+            cells[row + j * dr][col + j * dc] = symbol;
         }
     }
     void Grid::markHit(int row, int col) // מסמנת פגיעה
     {
         cells[row][col] = 'X';
     }
-
     void Grid::markMiss(int row, int col) // מסמנת החמצה
     {
         cells[row][col] = 'M';
     }
-
     void Grid::printGrid() const
     {
         std::cout << "   ";

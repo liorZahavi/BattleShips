@@ -6,7 +6,7 @@ namespace BattleShips
     {
     public:
         explicit AiPlayer(const char *name) : Player(name) {}
-        void placeAllShips();
-        void makeMove(Player *opponent);
+        void placeAllShips() override;
+        void makeMove(Player *opponent) override;
     };
 }
