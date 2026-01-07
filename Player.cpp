@@ -54,4 +54,46 @@ namespace BattleShips
         grid->printGrid();
     }
 
+    char Player::getShipSymbol(const Ship *ship) const
+    {
+        const char *n = ship->getName();
+        if (std::strcmp(n, "Carrier") == 0)
+            return 'C';
+        if (std::strcmp(n, "Battleship") == 0)
+            return 'B';
+        if (std::strcmp(n, "Cruiser") == 0)
+            return 'R';
+        if (std::strcmp(n, "Submarine") == 0)
+            return 'S';
+        if (std::strcmp(n, "Destroyer") == 0)
+            return 'D';
+    }
+    int Player::shipIndexBySymbol(char symbol) const
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (!ships[i])
+                continue;
+            const char *name = ships[i]->getName();
+
+            if (symbol == 'C' && std::strcmp(name, "Carrier") == 0)
+                return i;
+            if (symbol == 'B' && std::strcmp(name, "BattleShip") == 0)
+                return i;
+            if (symbol == 'R' && std::strcmp(name, "Cruiser") == 0)
+                return i;
+            if (symbol == 'S' && std::strcmp(name, "Submarine") == 0)
+                return i;
+            if (symbol == 'D' && std::strcmp(name, "Destroyer") == 0)
+                return i;
+        }
+        return -1;
+    }
+    void Player::registerHit(char symbol)
+    {
+        int idx = shipIndexBySymbol(symbol);
+        if (idx != -1)
+            ships[idx]->takeHit();
+    }
+
 }

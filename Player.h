@@ -23,5 +23,9 @@ namespace BattleShips
         virtual void makeMove(Player *opponent) = 0;
         bool allShipsSunk() const;
         void displayGrid();
+
+        char getShipSymbol(const Ship *ship) const;
+        int shipIndexBySymbol(char symbol) const;
+        void registerHit(char symbol);
     };
 }

@@ -28,7 +28,8 @@ namespace BattleShips
                     std::cout << "Invalid placement, try again.\n";
                     continue;
                 }
-                og->placeShip(row, col, ship->getSize(), horizontal, 'S');
+                char sym = getShipSymbol(ships[i]);
+                og->placeShip(row, col, ship->getSize(), horizontal, sym);
                 placed = true;
             }
         }
@@ -36,7 +37,6 @@ namespace BattleShips
     void HumanPlayer::makeMove(Player *opponent)
     {
         int row, col;
-        bool valid = false;
         std::cout << "Enter attack placement(row,col): " << std::endl;
         std::cin >> row >> col;
         row--;
@@ -48,18 +48,17 @@ namespace BattleShips
             std::cout << "Already attacked here\n";
             return;
         }
-        if (cell == 'S')
+        if (cell == 'C' || cell == 'B' || cell == 'R' || cell == 'B' || cell == 'D')
         {
+            opponent->registerHit(cell);
             og->markHit(row, col);
-            std::cout << "hit!\n";
+            std::cout << "Hit!\n";
         }
         else
         {
             og->markMiss(row, col);
             std::cout << "miss!\n";
-            return;
         }
-        valid = true;
 
         this->getGrid()->printGrid();
         og->printGrid();
