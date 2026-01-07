@@ -12,6 +12,7 @@ namespace BattleShips
         ~Grid();
         bool isTileOccupied(int row, int col) const;
         bool inBounds(int row, int col, int shipSize, bool horizontal) const;
+        bool tryPlaceShip(int row, int col, int shipSize, bool horizontal, char symbol);
         void placeShip(int row, int col, int shipSize, bool horizontal, char symbol);
         void markHit(int row, int col);
         void markMiss(int row, int col);

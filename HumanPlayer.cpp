@@ -12,6 +12,7 @@ namespace BattleShips
         for (int i = 0; i < 5; i++)
         {
             Ship *ship = ships[i];
+            char sym = getShipSymbol(ships[i]);
             bool placed = false;
             while (!placed)
             {
@@ -28,20 +29,22 @@ namespace BattleShips
                     std::cout << "Invalid placement, try again.\n";
                     continue;
                 }
-                char sym = getShipSymbol(ships[i]);
-                og->placeShip(row, col, ship->getSize(), horizontal, sym);
+                placed = og->tryPlaceShip(row, col, ship->getSize(), horizontal, sym);
+
+                if (!placed)
+                    std::cout << "Invalid placement, try again.\n";
                 placed = true;
             }
         }
     }
     void HumanPlayer::makeMove(Player *opponent)
     {
+        Grid *og = opponent->getGrid();
         int row, col;
         std::cout << "Enter attack placement(row,col): " << std::endl;
         std::cin >> row >> col;
         row--;
         col--;
-        Grid *og = opponent->getGrid();
         char cell = og->getCell(row, col);
         if (cell == 'X' || cell == 'M')
         {

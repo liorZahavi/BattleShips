@@ -33,6 +33,23 @@ namespace BattleShips
         else // אנכי
             return (col + shipSize - 1) < 10;
     }
+    bool Grid::tryPlaceShip(int row, int col, int shipSize, bool horizontal, char symbol)
+    {
+        if (!inBounds(row, col, shipSize, horizontal))
+            return false;
+
+        int dr = horizontal ? 0 : 1;
+        int dc = horizontal ? 1 : 0;
+
+        for (int i = 0; i < shipSize; ++i)
+            if (isTileOccupied(row + i * dr, col + i * dc))
+                return false;
+
+        // אם הכול תקין – קראי לפונקציה הקיימת
+        placeShip(row, col, shipSize, horizontal, symbol);
+        return true;
+    }
+
     void Grid::placeShip(int row, int col, int shipSize, bool horizontal, char symbol) // בודקת שאפשר להציב גבולות ומציבה בפועל
     {
         if (!inBounds(row, col, shipSize, horizontal))
