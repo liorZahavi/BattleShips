@@ -35,6 +35,7 @@ namespace BattleShips
             ships[i] = nullptr;
         }
         delete grid;
+        grid = nullptr;
     }
     bool Player::allShipsSunk() const
     {

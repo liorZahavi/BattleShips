@@ -55,7 +55,6 @@ namespace BattleShips
         }
         else
         {
-
             og->markMiss(row, col);
             std::cout << "miss!\n";
             return;
