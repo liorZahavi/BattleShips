@@ -12,20 +12,18 @@ namespace BattleShips
         Grid *grid;
 
     public:
+        char getShipSymbol(Ship* ship);
         Player(const char *name);
         virtual ~Player();
         char *GetPlayerName() { return playerName; }
-        Grid *getGrid() { return grid; }
-        Player(const Player &) = delete;
-        Player &operator=(const Player &) = delete;
-
         virtual void placeAllShips() = 0;
         virtual void makeMove(Player *opponent) = 0;
         bool allShipsSunk() const;
         void displayGrid();
-
-        char getShipSymbol(const Ship *ship) const;
-        int shipIndexBySymbol(char symbol) const;
+        Grid* getGrid() const { return grid; }
         void registerHit(char symbol);
+        int shipIndexBySymbol(char symbol) const;
+        char getShipSymbol(const Ship *ship) const;
+
     };
 }
