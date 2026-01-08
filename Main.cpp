@@ -1,3 +1,5 @@
+//yarden shriki 322239526
+//lior zahavi 325082071
 #include "Game.h"
 #include "Player.h"
 #include "HumanPlayer.h"

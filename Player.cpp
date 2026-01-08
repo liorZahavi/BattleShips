@@ -1,3 +1,5 @@
+//yarden shriki 322239526
+//lior zahavi 325082071
 #include "Player.h"
 #include "Ship.h"
 #include "Grid.h"
@@ -67,6 +69,7 @@ namespace BattleShips
             return 'S';
         if (std::strcmp(n, "Destroyer") == 0)
             return 'D';
+        return '!';
     }
     int Player::shipIndexBySymbol(char symbol) const
     {

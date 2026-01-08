@@ -1,3 +1,5 @@
+//yarden shriki 322239526
+//lior zahavi 325082071
 #include "HumanPlayer.h"
 #include "Player.h"
 #include "Grid.h"

@@ -1,3 +1,5 @@
+//yarden shriki 322239526
+//lior zahavi 325082071
 #include <iostream>
 #include "AiPlayer.h"
 #include "Ship.h"
@@ -32,8 +34,7 @@ namespace BattleShips
                 }
 
                 placed = grid_AI->tryPlaceShip(row, col, shipSize, horizontal, sym);
-                if (!placed)
-                    std::cout << "Invalid placement, try again.\n";
+
             }
         }
     }
