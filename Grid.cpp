@@ -45,7 +45,6 @@ namespace BattleShips
             if (isTileOccupied(row + i * dr, col + i * dc))
                 return false;
 
-        // אם הכול תקין – קראי לפונקציה הקיימת
         placeShip(row, col, shipSize, horizontal, symbol);
         return true;
     }
