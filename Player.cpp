@@ -78,7 +78,7 @@ namespace BattleShips
 
             if (symbol == 'C' && std::strcmp(name, "Carrier") == 0)
                 return i;
-            if (symbol == 'B' && std::strcmp(name, "BattleShip") == 0)
+            if (symbol == 'B' && std::strcmp(name, "Battleship") == 0)
                 return i;
             if (symbol == 'R' && std::strcmp(name, "Cruiser") == 0)
                 return i;

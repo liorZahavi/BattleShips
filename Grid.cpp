@@ -83,13 +83,13 @@ namespace BattleShips
     {
         std::cout << "   ";
         for (int col = 0; col < 10; ++col)
-            std::cout << col << ' ';
+            std::cout << col+1 << ' ';
         std::cout << "\n";
 
         for (int row = 0; row < 10; ++row)
         {
-            std::cout << row << "  ";
-            for (int col = 0; col < 10; ++col)
+            std::cout << row+1 << "  ";
+            for (int col = 0; col <10; ++col)
             {
                 std::cout << cells[row][col] << ' ';
             }

@@ -61,8 +61,10 @@ namespace BattleShips
         grid_AI->markMiss(row, col);
         std::cout << "miss!\n";
     }
-
+std::cout<<"computer board:\n";
     this->getGrid()->printGrid();
+
+    std::cout<<"Human board:\n";
     grid_AI->printGrid();
     }
 

@@ -21,8 +21,7 @@ namespace BattleShips
 
                 std::cout << "place ship " << ship->getName() << "(row,col,H/V)" << std::endl;
                 std::cin >> row >> col >> dir;
-                row--;
-                col--;
+
                 bool horizontal = (dir == 'H' || dir == 'h');
                 if (!og->inBounds(row, col, ship->getSize(), horizontal))
                 {
@@ -61,8 +60,10 @@ namespace BattleShips
             og->markMiss(row, col);
             std::cout << "miss!\n";
         }
-
+std::cout<<"Human board:\n";
         this->getGrid()->printGrid();
+
+        std::cout<<"computer board:\n";
         og->printGrid();
     }
 }

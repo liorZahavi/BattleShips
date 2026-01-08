@@ -25,10 +25,11 @@ namespace BattleShips
     }
     void Ship::takeHit()
     {
-        if (hitsTaken >= size)
+        if (hitsTaken >= size){
             return;
+        }
         ++hitsTaken;
-        std::cout << name << " got hit!" << std::endl;
+     std::cout << name << " got hit!" << std::endl;
     }
     bool Ship::isSunk() const
     {

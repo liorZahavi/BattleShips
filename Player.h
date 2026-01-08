@@ -12,7 +12,6 @@ namespace BattleShips
         Grid *grid;
 
     public:
-        char getShipSymbol(Ship* ship);
         Player(const char *name);
         virtual ~Player();
         char *GetPlayerName() { return playerName; }
