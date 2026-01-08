@@ -1,3 +1,4 @@
+#include <iostream>
 #include "AiPlayer.h"
 #include "Ship.h"
 #include "Grid.h"

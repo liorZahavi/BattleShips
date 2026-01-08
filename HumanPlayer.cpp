@@ -50,7 +50,7 @@ namespace BattleShips
             std::cout << "Already attacked here\n";
             return;
         }
-        if (cell == 'C' || cell == 'B' || cell == 'R' || cell == 'B' || cell == 'D')
+        if (cell == 'C' || cell == 'B' || cell == 'R' || cell == 'S' || cell == 'D')
         {
             opponent->registerHit(cell);
             og->markHit(row, col);
