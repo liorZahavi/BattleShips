@@ -30,10 +30,10 @@ namespace BattleShips
             return false;
 
         if (horizontal) // אופקי
-            return (row + shipSize - 1) < 10;
+            return (col + shipSize - 1) < 10;
 
         else // אנכי
-            return (col + shipSize - 1) < 10;
+            return (row + shipSize - 1) < 10;
     }
     bool Grid::tryPlaceShip(int row, int col, int shipSize, bool horizontal, char symbol)
     {
