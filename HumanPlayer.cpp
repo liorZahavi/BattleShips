@@ -1,5 +1,5 @@
-//yarden shriki 322239526
-//lior zahavi 325082071
+// yarden shriki 322239526
+// lior zahavi 325082071
 #include "HumanPlayer.h"
 #include "Player.h"
 #include "Grid.h"
@@ -24,7 +24,17 @@ namespace BattleShips
                 std::cout << "place ship " << ship->getName() << "(row,col,H/V)" << std::endl;
                 std::cin >> row >> col >> dir;
 
-                bool horizontal = (dir == 'H' || dir == 'h');
+                bool horizontal;
+                if (dir == 'H' || dir == 'h')
+                    horizontal = true;
+
+                else if (dir == 'V' || dir == 'v')
+                    horizontal = false;
+                else
+                {
+                    std::cout << "Invalid diraction, try again.\n";
+                    continue;
+                }
                 if (!og->inBounds(row, col, ship->getSize(), horizontal))
                 {
                     std::cout << "Invalid placement, try again.\n";
@@ -62,10 +72,10 @@ namespace BattleShips
             og->markMiss(row, col);
             std::cout << "miss!\n";
         }
-std::cout<<"Human board:\n";
+        std::cout << "Human board:\n";
         this->getGrid()->printGrid();
 
-        std::cout<<"computer board:\n";
+        std::cout << "computer board:\n";
         og->printGrid();
     }
 }
