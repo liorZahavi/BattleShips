@@ -1,5 +1,5 @@
-//yarden shriki 322239526
-//lior zahavi 325082071
+// yarden shriki 322239526
+// lior zahavi 325082071
 #include "Ship.h"
 #include <cstring>
 #include <iostream>
@@ -28,9 +28,10 @@ namespace BattleShips
     void Ship::takeHit()
     {
         ++hitsTaken;
-        if (hitsTaken >= size){
-             std::cout << name << " is sunked!\n";
-             return;
+        if (hitsTaken >= size)
+        {
+            std::cout << name << " is sunked!\n";
+            return;
         }
     }
     bool Ship::isSunk() const
