@@ -6,6 +6,7 @@
 #include "Ship.h"
 #include <iostream>
 #include "cstring"
+
 namespace BattleShips
 {
     void HumanPlayer::placeAllShips()
@@ -47,7 +48,7 @@ namespace BattleShips
             }
         }
     }
-    void HumanPlayer::makeMove(Player *opponent)
+void HumanPlayer::makeMove(Player *opponent)
     {
         Grid *og = opponent->getGrid();
         int row, col;
