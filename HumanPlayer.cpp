@@ -55,6 +55,11 @@ namespace BattleShips
         std::cin >> row >> col;
         row--;
         col--;
+        if (row < 0 || row >= 10 || col < 0 || col >= 10)
+        {
+            std::cout << "Invalid attack position\n";
+            return;
+        }
         char cell = og->getCell(row, col);
         if (cell == 'X' || cell == 'M')
         {

@@ -1,5 +1,5 @@
-//yarden shriki 322239526
-//lior zahavi 325082071
+// yarden shriki 322239526
+// lior zahavi 325082071
 #include <iostream>
 #include "Grid.h"
 namespace BattleShips
@@ -85,13 +85,13 @@ namespace BattleShips
     {
         std::cout << "   ";
         for (int col = 0; col < 10; ++col)
-            std::cout << col+1 << ' ';
+            std::cout << col + 1 << ' ';
         std::cout << "\n";
 
         for (int row = 0; row < 10; ++row)
         {
-            std::cout << row+1 << "  ";
-            for (int col = 0; col <10; ++col)
+            std::cout << row + 1 << "  ";
+            for (int col = 0; col < 10; ++col)
             {
                 std::cout << cells[row][col] << ' ';
             }

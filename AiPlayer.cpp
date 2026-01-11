@@ -1,5 +1,5 @@
-//yarden shriki 322239526
-//lior zahavi 325082071
+// yarden shriki 322239526
+// lior zahavi 325082071
 #include <iostream>
 #include "AiPlayer.h"
 #include "Ship.h"
@@ -7,9 +7,10 @@
 #include <iostream>
 namespace BattleShips
 {
-      int AiPlayer::getRandomCoordinate() {
-      return std::rand() % 10;
-  }
+    int AiPlayer::getRandomCoordinate()
+    {
+        return std::rand() % 10;
+    }
     void AiPlayer::placeAllShips()
     {
         Grid *grid_AI = this->getGrid();
@@ -34,7 +35,6 @@ namespace BattleShips
                 }
 
                 placed = grid_AI->tryPlaceShip(row, col, shipSize, horizontal, sym);
-
             }
         }
     }
@@ -42,31 +42,36 @@ namespace BattleShips
     {
         Grid *grid_AI = opponent->getGrid();
 
-    int row, col;
-    char cell;
-    do
-    {
-        row = getRandomCoordinate();
-        col = getRandomCoordinate();
-        cell = grid_AI->getCell(row, col);
-    } while (cell == 'X' || cell == 'M');
+        int row, col;
+        char cell;
+        do
+        {
+            row = getRandomCoordinate();
+            col = getRandomCoordinate();
+            if (row < 0 || row >= 10 || col < 0 || col >= 10)
+            {
+                std::cout << "Invalid attack position\n";
+                return;
+            }
+            cell = grid_AI->getCell(row, col);
+        } while (cell == 'X' || cell == 'M');
 
-    if (cell == 'C' || cell == 'B' || cell == 'R' || cell == 'S' || cell == 'D')
-    {
-        opponent->registerHit(cell);
-        grid_AI->markHit(row, col);
-        std::cout << "Hit!\n";
-    }
-    else
-    {
-        grid_AI->markMiss(row, col);
-        std::cout << "miss!\n";
-    }
-std::cout<<"computer board:\n";
-    this->getGrid()->printGrid();
+        if (cell == 'C' || cell == 'B' || cell == 'R' || cell == 'S' || cell == 'D')
+        {
+            opponent->registerHit(cell);
+            grid_AI->markHit(row, col);
+            std::cout << "Hit!\n";
+        }
+        else
+        {
+            grid_AI->markMiss(row, col);
+            std::cout << "miss!\n";
+        }
+        std::cout << "computer board:\n";
+        this->getGrid()->printGrid();
 
-    std::cout<<"Human board:\n";
-    grid_AI->printGrid();
+        std::cout << "Human board:\n";
+        grid_AI->printGrid();
     }
 
 }
